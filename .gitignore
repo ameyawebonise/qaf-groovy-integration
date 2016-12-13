@@ -9,7 +9,7 @@
 
 *.htm
 *.yml
-
+qaf.i*
 lib/
 *.txt
 ivy*

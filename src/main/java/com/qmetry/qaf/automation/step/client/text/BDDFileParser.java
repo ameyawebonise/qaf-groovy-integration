@@ -36,6 +36,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -96,17 +97,17 @@ public class BDDFileParser extends AbstractScenarioFileParser {
 						// process single statement
 						Object[] cols = new Object[]{"", "", "", lineNo};
 						String currLine = currLineBuffer.toString();
-						if ((StringUtil.indexOfIgnoreCase(currLine, SCENARIO) == 0)
-								|| (StringUtil.indexOfIgnoreCase(currLine,
+						if ((StringUtils.indexOfIgnoreCase(currLine, SCENARIO) == 0)
+								|| (StringUtils.indexOfIgnoreCase(currLine,
 										BACKGROUND) == 0)
-								|| (StringUtil.indexOfIgnoreCase(currLine, STEP_DEF) == 0)
-								|| (StringUtil.indexOfIgnoreCase(currLine,
+								|| (StringUtils.indexOfIgnoreCase(currLine, STEP_DEF) == 0)
+								|| (StringUtils.indexOfIgnoreCase(currLine,
 										"META") == 0)) {
 
 							System.arraycopy(currLine.split(":", 2), 0, cols, 0, 2);
 
 							// append meta-data in last/scenario statement
-							if (StringUtil.indexOfIgnoreCase(((String) cols[0]).trim(),
+							if (StringUtils.indexOfIgnoreCase(((String) cols[0]).trim(),
 									"META") == 0) {
 //								Object[] row = new Object[4];
 //								int prevIndex = rows.size() - 1;
@@ -119,7 +120,7 @@ public class BDDFileParser extends AbstractScenarioFileParser {
 								//rows.add(row);
 								currLineBuffer = new StringBuffer();
 								continue;
-							} else if (StringUtil.indexOfIgnoreCase(currLine,
+							} else if (StringUtils.indexOfIgnoreCase(currLine,
 									BACKGROUND) == 0) {
 								bIsBackground = true;
 								currLineBuffer = new StringBuffer();
@@ -137,7 +138,7 @@ public class BDDFileParser extends AbstractScenarioFileParser {
 						} else {
 							if(lastScenarioIndex>=0)
 							rows.add(cols);
-							if(StringUtil.indexOfIgnoreCase((String) cols[0], SCENARIO) == 0){
+							if(StringUtils.indexOfIgnoreCase((String) cols[0], SCENARIO) == 0){
 								rows.addAll(background);
 							}
 						}

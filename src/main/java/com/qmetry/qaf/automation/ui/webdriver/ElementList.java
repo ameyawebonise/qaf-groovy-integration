@@ -31,6 +31,7 @@ package com.qmetry.qaf.automation.ui.webdriver;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import org.json.JSONException;
@@ -107,7 +108,7 @@ public class ElementList<T extends QAFWebElement> extends ArrayList<T> {
 					public Boolean apply(QAFExtendedWebDriver driver) {
 						try {
 							clear();
-							addAll((Collection<T>) context.findElements(by));
+						//	addAll((List<? extends T>) context.findElements(by));
 							return size() > index;
 						} catch (WebDriverException e) {
 							return false;

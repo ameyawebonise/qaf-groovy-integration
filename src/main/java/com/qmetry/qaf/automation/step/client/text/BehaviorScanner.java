@@ -30,6 +30,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -85,14 +86,14 @@ public class BehaviorScanner {
 						// process single statement
 						Object[] cols = new Object[] { "", "", "", lineNo };
 						String currLine = currLineBuffer.toString();
-						if ((StringUtil.indexOfIgnoreCase(currLine, AbstractScenarioFileParser.SCENARIO) == 0)
-								|| (StringUtil.indexOfIgnoreCase(currLine, AbstractScenarioFileParser.STEP_DEF) == 0)
-								|| (StringUtil.indexOfIgnoreCase(currLine, "META") == 0)) {
+						if ((StringUtils.indexOfIgnoreCase(currLine, AbstractScenarioFileParser.SCENARIO) == 0)
+								|| (StringUtils.indexOfIgnoreCase(currLine, AbstractScenarioFileParser.STEP_DEF) == 0)
+								|| (StringUtils.indexOfIgnoreCase(currLine, "META") == 0)) {
 
 							System.arraycopy(currLine.split(":", 2), 0, cols, 0, 2);
 
 							// append meta-data in last/scenario statement
-							if (StringUtil.indexOfIgnoreCase(((String) cols[0]).trim(), "META") == 0) {
+							if (StringUtils.indexOfIgnoreCase(((String) cols[0]).trim(), "META") == 0) {
 								Object[] row = new Object[4];
 								int prevIndex = rows.size() - 1;
 

@@ -40,6 +40,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -213,7 +214,7 @@ public class GherkinFileParser extends AbstractScenarioFileParser {
 						background.add(cols);
 					else {
 						rows.add(cols);
-						boolean scenarioStarted = StringUtil.indexOfIgnoreCase(type, SCENARIO) == 0;
+						boolean scenarioStarted = StringUtils.indexOfIgnoreCase(type, SCENARIO) == 0;
 						
 						if (scenarioStarted) {
 							lastScenarioIndex = rows.size() - 1;
@@ -325,17 +326,17 @@ public class GherkinFileParser extends AbstractScenarioFileParser {
 	}
 
 	private String getType(String line) {
-		if (StringUtil.indexOfIgnoreCase(line, TAG) == 0)
+		if (StringUtils.indexOfIgnoreCase(line, TAG) == 0)
 			return TAG;
-		if (StringUtil.indexOfIgnoreCase(line, SCENARIO_OUTELINE) == 0)
+		if (StringUtils.indexOfIgnoreCase(line, SCENARIO_OUTELINE) == 0)
 			return SCENARIO_OUTELINE;
-		if (StringUtil.indexOfIgnoreCase(line, SCENARIO) == 0)
+		if (StringUtils.indexOfIgnoreCase(line, SCENARIO) == 0)
 			return SCENARIO;
-		if (StringUtil.indexOfIgnoreCase(line, EXAMPLES) == 0)
+		if (StringUtils.indexOfIgnoreCase(line, EXAMPLES) == 0)
 			return EXAMPLES;
-		if (StringUtil.indexOfIgnoreCase(line, FEATURE) == 0)
+		if (StringUtils.indexOfIgnoreCase(line, FEATURE) == 0)
 			return FEATURE;
-		if (StringUtil.indexOfIgnoreCase(line, BACKGROUND) == 0)
+		if (StringUtils.indexOfIgnoreCase(line, BACKGROUND) == 0)
 			return BACKGROUND;
 		return "";
 	}

@@ -385,7 +385,7 @@ public class QAFTestBase {
 				.withTimeout(ApplicationProperties.DRIVER_INIT_TIMEOUT.getIntVal(0),
 						TimeUnit.SECONDS)
 				.pollingEvery(10, TimeUnit.SECONDS)
-				.withMessage(driverInitExpectedCondition)
+				.withMessage(driverInitExpectedCondition.get())
 				.ignoring(WebDriverException.class).until(driverInitExpectedCondition);
 		System.out.println("driver init done");
 	}

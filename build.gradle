@@ -9,7 +9,6 @@
 
 
 // Apply the java plugin to add support for Java
-apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'idea'
 
@@ -25,6 +24,15 @@ repositories {
     // Use 'jcenter' for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+}
+
+//this following configuration is needed to make the compileJava task a NOOP.All the groovy and the java files will be compiled by groovyc provided by the groovy plugin.
+//pass the src directory as src to the groovyc task
+sourceSets {
+    main {
+        java { srcDirs = [] }    // no source dirs for the java compiler
+        groovy { srcDir "src" }  // compile everything in src/ with groovy
+    }
 }
 
 // In this section you declare the dependencies for your production and test code

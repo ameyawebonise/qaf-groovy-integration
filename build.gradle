@@ -81,6 +81,8 @@ dependencies {
     compile group: 'net.sourceforge.jexcelapi', name: 'jxl', version: '2.6.12'
 // https://mvnrepository.com/artifact/log4j/log4j
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    // https://mvnrepository.com/artifact/org.xmlmatchers/xml-matchers
+    compile group: 'org.xmlmatchers', name: 'xml-matchers', version: '1.0-RC1'
 
 
 

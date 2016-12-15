@@ -32,11 +32,7 @@ public class Entry {
 		  
 		  gse.run("Songs.groovy", binding); */
 	
-	
-	/**
-	 * @param searchTerm
-	 *            : search term to be searched
-	 */
+
 	
 	@QAFTestStep(description = "I am on the home page")
 	public static void searchFor() {
